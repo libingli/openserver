@@ -64,7 +64,7 @@ static void trie_destroy_node(trie_node_s *node, unsigned int num)
     free(node->element);
     list_for_each_entry_safe(&(node->list), b, n, list)
     {
-        list_del(&b->list);
+        list_remove(&b->list);
         trie_destroy_branch(b->branches, num);
     }
     free(node);
