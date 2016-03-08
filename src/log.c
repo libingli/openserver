@@ -87,8 +87,25 @@ void log_output(int level, char *format, ...)
     return;
 }
 
-void log_init(void)
+void log_set_level(int level)
 {
+    if (0 <= level && level <= LOG_DEBUG)
+    {
+        g_log_level = level;
+    }
+    return;
+}
+
+void log_init(const char *file)
+{
+    if (NULL != file)
+    {
+        g_log_file = fopen(file, "a+");
+        if (NULL == g_log_file)
+        {
+            log_err("Failed to open log file: %s", file);
+        }
+    }
     return;
 }
 

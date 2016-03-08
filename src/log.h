@@ -33,8 +33,9 @@ enum log_level{
     log_output(LOG_DEBUG, format, ##args)
 
 void log_output(int level, char *format, ...);
+void log_set_level(int level);
 
-void log_init(void);
+void log_init(const char *file);
 void log_finish(void);
 
 #endif /* _LOG_H_ */

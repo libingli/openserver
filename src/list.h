@@ -61,12 +61,12 @@ typedef struct tag_list{
 /**
  * list_for_each_safe - iterate over a list safe against removal of list entry
  * @cursor: the &struct list_t to use as a loop cursor.
- * @n: another &struct list_t to use as temporary storage
+ * @next: another &struct list_t to use as temporary storage
  * @head: the head for your list.
  */
-#define list_for_each_safe(head, cursor, n)                        \
-    for (cursor = (head)->next, n = cursor->next; cursor != (head);      \
-        cursor = n, n = cursor->next)
+#define list_for_each_safe(head, cursor, next)                        \
+    for (cursor = (head)->next, next = cursor->next; cursor != (head);      \
+        cursor = next, next = cursor->next)
 
 #define list_entry(ptr, type, member)                           \
     (type *) ((u_char *)(typeof( ((type *)0)->member ) *)ptr - offsetof(type, member))

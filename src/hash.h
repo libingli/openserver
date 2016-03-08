@@ -13,7 +13,7 @@
  * 一书被展示而得名，是一种简单快捷的hash算法，
  * 也是Java目前采用的字符串的Hash算法（累乘因子为31）
  */ 
-inline 
+static inline 
 size_t hash_bkdr(const void *key, unsigned int ksize, unsigned int range)
 {  
     size_t hash = 0;
